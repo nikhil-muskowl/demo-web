@@ -1,0 +1,14 @@
+<div class="swiper-container" [swiper]="SwiperConfig" [(index)]="index">
+
+  <div class="swiper-wrapper">
+    <div *ngFor="let banner of banners" class="swiper-slide">
+      <img src="{{banner.image}}" width="1000" height="500">
+      <p>{{banner.title}}</p>
+    </div>
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

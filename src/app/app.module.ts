@@ -1,15 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+ 
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
+
+
+import { AppRoutingModule } from './app-routing.module';
+
+// services
+import { ConfigService } from "./services/config.service";
+import { BannerService } from "./services/banner/banner.service";
+
+// components
 import { HomeComponent } from './public/home/home.component';
 import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
-import { AppRoutingModule } from './app-routing.module';
-
-
-import { ConfigService } from "./services/config.service";
 import { LoginComponent } from './public/account/login/login.component';
 import { RegisterComponent } from './public/account/register/register.component';
 import { AccountComponent } from './public/account/account/account.component';
@@ -23,6 +39,7 @@ import { CategoriesComponent } from './public/product/categories/categories.comp
 import { ProductsComponent } from './public/product/products/products.component';
 import { ProductDetailComponent } from './public/product/product-detail/product-detail.component';
 import { CategoryDetailComponent } from './public/product/category-detail/category-detail.component';
+import { BannersComponent } from './public/modules/banners/banners.component';
 
 @NgModule({
   declarations: [
@@ -43,15 +60,22 @@ import { CategoryDetailComponent } from './public/product/category-detail/catego
     ProductsComponent,
     ProductDetailComponent,
     CategoryDetailComponent,
-    
+    BannersComponent,    
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule,
-    AppRoutingModule
+    SwiperModule,
+    AppRoutingModule,    
   ],
   providers: [
-    ConfigService
+    ConfigService,
+    BannerService,
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   bootstrap: [AppComponent]
 })
