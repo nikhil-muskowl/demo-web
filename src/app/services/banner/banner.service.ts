@@ -28,11 +28,7 @@ export class BannerService {
   list() {
     this.url = this.configService.url + 'design_module/api/banners_api';
     this.formData.append('language_id', '1');
-    return this.http.post(this.url, this.formData, { headers: this.headers })
-      .pipe(
-        retry(3),
-        catchError(this.handleError)
-      );
+    return this.http.post(this.url, this.formData, { headers: this.headers });
   }
 
   detail(id: any) {
