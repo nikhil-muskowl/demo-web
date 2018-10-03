@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyOrdersComponent implements OnInit {
 
+  private heading = 'My Orders';
+
   constructor() { }
 
   ngOnInit() {

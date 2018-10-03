@@ -41,6 +41,7 @@ import { ProductsComponent } from './public/product/products/products.component'
 import { ProductDetailComponent } from './public/product/product-detail/product-detail.component';
 import { CategoryDetailComponent } from './public/product/category-detail/category-detail.component';
 import { BannersComponent } from './public/modules/banners/banners.component';
+import { AccountSidebarComponent } from './public/account/account-sidebar/account-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { BannersComponent } from './public/modules/banners/banners.component';
     ProductDetailComponent,
     CategoryDetailComponent,
     BannersComponent,
+    AccountSidebarComponent,   
   ],
   imports: [
     BrowserModule,
