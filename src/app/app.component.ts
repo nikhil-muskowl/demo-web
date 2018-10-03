@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from "./services/account/user.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'demo';
-  faCoffee = faCoffee;
+  private isLogged = false;
+
+  constructor(
+    private userService: UserService,
+  ) {
+  }
+
+  ngOnInit() {
+    if (this.userService.id) {
+      this.isLogged = true;
+    }
+  }
+
 }

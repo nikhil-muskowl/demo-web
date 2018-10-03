@@ -1,3 +1,23 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <h1>{{heading}}</h1>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-horizontal">
+
+    <div class="form-group" [class.has-error]="formErrors.username">
+      <input type="text" class="form-control" placeholder="username" formControlName="username">
+      <span *ngIf="formErrors.username" class="text-error">
+        {{formErrors.username}}
+      </span>
+    </div>
+
+    <div class="form-group" [class.has-error]="formErrors.password">
+      <input type="password" class="form-control" placeholder="password" formControlName="password">
+      <span *ngIf="formErrors.password" class="text-error">
+        {{formErrors.password}}
+      </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">SUBMIT</button>
+
+  </form>
+</div>
